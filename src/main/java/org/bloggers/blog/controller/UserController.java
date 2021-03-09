@@ -8,10 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -71,5 +69,23 @@ public class UserController {
         //if(pagingUser.isLast()){  }
         List<User> users = pagingUser.getContent();
         return users;
+    }
+
+    /**
+     * update : email , password 수정 가능
+     * json data 를 받기 -> @RequestBody
+     */
+    @Transactional
+    @PutMapping("/user/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User requestUser) {
+        System.out.println("id: " + id);
+        System.out.println("password : " + requestUser.getPassword());
+        System.out.println("email : " + requestUser.getEmail());
+        User user = userRepository.findById(id).orElseThrow(() ->{
+           return new IllegalArgumentException("수정에 실패했습니다. ");
+        });
+        user.setPassword(requestUser.getPassword());
+        user.setEmail(requestUser.getEmail());
+        return null;
     }
 }
