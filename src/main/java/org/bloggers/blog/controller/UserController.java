@@ -4,6 +4,7 @@ import org.bloggers.blog.model.RoleType;
 import org.bloggers.blog.model.User;
 import org.bloggers.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -86,6 +87,18 @@ public class UserController {
         });
         user.setPassword(requestUser.getPassword());
         user.setEmail(requestUser.getEmail());
-        return null;
+        return user;
     }
+    @DeleteMapping("/user/{id}")
+    public String delete(@PathVariable int id) {
+        try{
+            userRepository.deleteById(id);
+        }catch (EmptyResultDataAccessException e) {
+            return "삭제에 실패하였습니다. 존재하지 않는 id 입니다. ";
+        }
+
+        return "삭제되었습니다. ";
+    }
+
+
 }
