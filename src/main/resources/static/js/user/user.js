@@ -13,9 +13,25 @@ let index = {
             password: $("#password").val(),
             email: $("#email").val()
 
-        }
+        };
         console.log(data);
-        $ .ajax().done().fail(); //ajax 통신 이용해서 3개의 데이터를 json으로 변경하여 insert 요청
+
+        // ajax 호출시 default가 비동기 호출
+        //ajax 통신 이용해서 3개의 데이터를 json으로 변경하여 insert 요청
+        $ .ajax({
+            //회원가입 수행 요청 (100초 가정)
+            type: "POST",
+            url: "/api/user",
+            data: JSON.stringify(data),
+            contentType : "application/json; charset=urf-8",
+            dataType : "json" //생략 가능
+        }).done(function (resp) {
+            alert(resp);
+            alert("회원가입이 완료 되었습니다. ");
+            location.href = "/";
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
     }
 }
 
