@@ -22,7 +22,7 @@ public class User {
     //프로젝트에서 연결된 db 의 넘버링 전략을 따라간다. -oracle:sequence / mysql : AI
     private int id;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30, unique = true)
     private String username;
 
     @Column(nullable = false, length = 100) // 해쉬 암호화
