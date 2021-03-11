@@ -3,6 +3,9 @@ let index = {
         $("#btn-save").on("click", () => {
             this.save();
         });
+        $("#btn-login").on("click", () => {
+            this.login();
+        });
     },
 
     save:function() {
@@ -28,6 +31,30 @@ let index = {
         }).done(function (resp) {
             alert(resp);
             alert("회원가입이 완료 되었습니다. ");
+            location.href = "/";
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    login: function() {
+
+        let data = {
+            username: $("#username").val(),
+            password: $("#password").val(),
+
+        };
+
+        $ .ajax({
+            //회원가입 수행 요청 (100초 가정)
+            type: "POST",
+            url: "/api/user/login",
+            data: JSON.stringify(data),
+            contentType : "application/json; charset=urf-8",
+            dataType : "json" //생략 가능
+        }).done(function (resp) {
+            alert(resp);
+            alert("로그인이 완료 되었습니다. ");
             location.href = "/";
         }).fail(function (error) {
             alert(JSON.stringify(error));
