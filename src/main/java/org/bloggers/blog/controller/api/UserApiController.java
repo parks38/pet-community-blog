@@ -20,7 +20,7 @@ public class UserApiController {
         System.out.println("UserApiController: save 호출됨 ");
         // dependency injection
         user.setRole(RoleType.USER);
-        int result = userService.회원가입(user);
-        return new ResponseDto<Integer>(HttpStatus.OK, result);
+        userService.회원가입(user);
+        return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
 }
