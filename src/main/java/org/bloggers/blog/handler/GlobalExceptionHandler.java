@@ -1,5 +1,7 @@
 package org.bloggers.blog.handler;
 
+import org.bloggers.blog.dto.ResponseDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +17,8 @@ public class GlobalExceptionHandler {
      *  Exception.class - 모든 익셉션 받기
      */
     @ExceptionHandler(value = Exception.class)
-    public String handleArgumentException(Exception e) {
-        return "<h1>" + e.getMessage() + "</h1>";
+    public ResponseDto<String> handleArgumentException(Exception e) {
+        return new ResponseDto<String>(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
     }
 
 }
