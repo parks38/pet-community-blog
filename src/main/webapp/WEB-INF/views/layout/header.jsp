@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,27 +21,33 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="/">홈 화면 </a>
+    <c:choose>
+        <c:when test = "${empty principal}">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/loginForm">로그인 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/joinForm">회원가입</a>
+                </li>
+            </ul>
+        </c:when>
+        <c:otherwise>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/board/form">글쓰기 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/form">${principal.username}님, 회원정보</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">로그아웃</a>
+                </li>
+            </ul>
+        </c:otherwise>
+    </c:choose>
 
-    <!-- Links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="/user/loginForm">로그인 </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/user/joinForm">회원가입</a>
-        </li>
-
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Dropdown link
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Link 1</a>
-                <a class="dropdown-item" href="#">Link 2</a>
-                <a class="dropdown-item" href="#">Link 3</a>
-            </div>
-        </li>
-    </ul>
 </nav>
 <br />
