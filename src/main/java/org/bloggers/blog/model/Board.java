@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -26,17 +27,16 @@ public class Board {
     @Lob //대용량 데이터
     private String content; //summer note library tool <html> 태그 섞어서 디자인
 
-    @ColumnDefault("0")
     private int count; //조회수
 
     @CreationTimestamp
-    private Timestamp createDate;
+    private LocalDateTime createDate;
 
     //연관관계
     @ManyToOne(fetch = FetchType.EAGER) // many = board, one = user
     @JoinColumn(name="userId")
     private User user; //작성자 - db 오브젝트를 저장할수 없다
 
-    @OneToMany(mappedBy = "board") // reply Board 가 FK
-    private List<Reply> replyList;
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // reply Board 가 FK
+    private List<Reply> reply;
 }

@@ -1,6 +1,6 @@
 let index = {
     init:function(){
-        $("#btn-save").on("click", () => {
+        $("#btn-board-save").on("click", () => {
             this.save();
         });
 
@@ -27,7 +27,6 @@ let index = {
             alert(JSON.stringify(error));
         });
     },
-가
 }
 
 index.init();
