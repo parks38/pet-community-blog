@@ -15,7 +15,6 @@ let index = {
             email: $("#email").val()
 
         };
-        console.log(data);
 
         // ajax 호출시 default가 비동기 호출
         //ajax 통신 이용해서 3개의 데이터를 json으로 변경하여 insert 요청
