@@ -26,6 +26,7 @@ public class BoardService {
         board.setUser(user);
         boardRepository.save(board);
     }
+
     @Transactional(readOnly = true)
     public Page<Board> 글목록(Pageable pageable) {
         return boardRepository.findAll(pageable);
@@ -41,9 +42,19 @@ public class BoardService {
 
     @Transactional
     public void 글삭제하기(int id) {
-         boardRepository.deleteById(id);
+        boardRepository.deleteById(id);
     }
 
+    @Transactional
+    public void 글수정하기(int id, Board requestBoard) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> {
+                    return new IllegalArgumentException("글 찾기 실패: 아이디를 찾을 수 없습니다. ");
+                }); //영속화 완료
+        board.setTitle(requestBoard.getTitle());
+        board.setContent(requestBoard.getContent());
+        // 이때 더티체킹 --자동 업데이터가 됨 db flush
+    }
 
 
 }
