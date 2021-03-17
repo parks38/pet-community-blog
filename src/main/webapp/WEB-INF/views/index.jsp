@@ -3,6 +3,7 @@
 <%@ include file="layout/header.jsp"%>
 
 <div class="container">
+
     <c:forEach var = "board" items = "${boards.content}">
     <div class="card m-2" style="border: 1px solid black">
         <div class="card-body">
