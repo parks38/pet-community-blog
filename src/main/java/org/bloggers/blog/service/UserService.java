@@ -16,6 +16,8 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+
+
     /* 성공하면 commit 실패하면 rollback*/
     @Transactional
     public void 회원가입(User user) {
@@ -42,8 +44,11 @@ public class UserService {
         String encPassword = encoder.encode(rawPassword);
         persistance.setPassword(encPassword);
         persistance.setEmail(user.getEmail());
+
         //회원 함수 종료시 = 서비스 종료 = 트랜잭션 종료 = commit 자동
         //영속화된 persistance객체의 변화가 감지되면 더티체킹이 되어 update 문 날려줌.
+
+
 
     }
 

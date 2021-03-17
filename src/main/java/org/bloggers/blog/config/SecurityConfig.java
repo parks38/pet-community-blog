@@ -4,6 +4,7 @@ import org.bloggers.blog.config.auth.PrincipalDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity //시큐리티 필터 추가
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private PrincipalDetailService principalDetailService;
 
@@ -50,5 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //spring security가 해당 주소로 요청오는 로그인을 가로채서 대신 로그인을 해준다.
             .loginProcessingUrl("/auth/loginProc")
             .defaultSuccessUrl("/");
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }
