@@ -1,11 +1,13 @@
 package org.bloggers.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.core.annotation.Order;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -38,5 +40,7 @@ public class Board {
     private User user; //작성자 - db 오브젝트를 저장할수 없다
 
     @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // reply Board 가 FK
-    private List<Reply> reply;
+    @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc")
+    private List<Reply> replys;
 }
