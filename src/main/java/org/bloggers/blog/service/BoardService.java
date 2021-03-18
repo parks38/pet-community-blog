@@ -1,9 +1,12 @@
 package org.bloggers.blog.service;
 
+import org.bloggers.blog.dto.ReplySaveRequestDto;
 import org.bloggers.blog.model.Board;
+import org.bloggers.blog.model.Reply;
 import org.bloggers.blog.model.RoleType;
 import org.bloggers.blog.model.User;
 import org.bloggers.blog.repository.BoardRepository;
+import org.bloggers.blog.repository.ReplyRepository;
 import org.bloggers.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +21,12 @@ import java.util.List;
 public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private ReplyRepository replyRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Transactional
@@ -56,5 +65,15 @@ public class BoardService {
         // 이때 더티체킹 --자동 업데이터가 됨 db flush
     }
 
+    @Transactional
+    public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
+        int result = replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+        System.out.println("BoardService: " + result);
+    }
+
+    @Transactional
+    public void 댓글삭제(int replyId) {
+        replyRepository.deleteById(replyId);
+    }
 
 }

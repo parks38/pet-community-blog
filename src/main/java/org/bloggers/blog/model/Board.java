@@ -39,7 +39,7 @@ public class Board {
     @JoinColumn(name="userId")
     private User user; //작성자 - db 오브젝트를 저장할수 없다
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // reply Board 가 FK
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) // reply Board 가 FK
     @JsonIgnoreProperties({"board"})
     @OrderBy("id desc")
     private List<Reply> replys;

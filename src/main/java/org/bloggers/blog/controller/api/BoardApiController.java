@@ -1,9 +1,12 @@
 package org.bloggers.blog.controller.api;
 
 import org.bloggers.blog.config.auth.PrincipalDetail;
+import org.bloggers.blog.dto.ReplySaveRequestDto;
 import org.bloggers.blog.dto.ResponseDto;
 import org.bloggers.blog.model.Board;
+import org.bloggers.blog.model.Reply;
 import org.bloggers.blog.model.User;
+import org.bloggers.blog.repository.ReplyRepository;
 import org.bloggers.blog.service.BoardService;
 import org.bloggers.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,18 @@ public class BoardApiController {
     @PutMapping("/api/board/{id}")
     public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board) {
         boardService.글수정하기(id, board);
+        return new ResponseDto<Integer>(HttpStatus.OK, 1);
+    }
+
+    @PostMapping("/api/board/{boardId}/reply")
+    public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto){
+        boardService.댓글쓰기(replySaveRequestDto);
+        return new ResponseDto<Integer>(HttpStatus.OK, 1);
+    }
+
+    @DeleteMapping("/api/board/{boardId}/reply/{replyId}")
+    public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
+        boardService.댓글삭제(replyId);
         return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
 

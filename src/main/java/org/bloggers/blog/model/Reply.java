@@ -1,9 +1,7 @@
 package org.bloggers.blog.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.bloggers.blog.dto.ReplySaveRequestDto;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
