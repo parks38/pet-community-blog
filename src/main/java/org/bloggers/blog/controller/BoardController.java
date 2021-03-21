@@ -43,4 +43,5 @@ public class BoardController {
         model.addAttribute("board",boardService.글상세보기(id) );
         return"board/updateForm";
     }
+
 }
