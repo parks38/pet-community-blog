@@ -22,7 +22,6 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
-
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -68,46 +67,29 @@
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-            <div class="row">
-                <div class="panel panel-default" style="margin-left: 30px; border:  2px solid rebeccapurple;">
-                    <div class="panel-heading" style="text-align: center; background-color: rebeccapurple">  <h3 style="color: white">고객님의 정보</h3></div>
-                    <div class="panel-body">
-                        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                            <img alt="User Pic" src="/image/user.png" id="profile-image1" class="img-circle img-responsive">
+<div class="col-lg-9">
+    <div class="row">
+        <div class="panel panel-default" style="margin-left: 30px; border:  2px solid rebeccapurple;">
+            <div class="panel-heading" style="text-align: center; background-color: rebeccapurple">  <h3 style="color: white">고객님의 정보</h3></div>
+            <div class="panel-body">
+                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                    <img alt="User Pic" src="/image/user.png" id="profile-image1" class="img-circle img-responsive">
 
 
-                        </div>
-                        <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                            <form>
-                                <input type="hidden" id="id" value="${principal.user.id}"/>
-                                <div class="form-group">
-                                    <label for="username">아이디 :</label>
-                                    <input type="text" value="${principal.user.username}" class="form-control" placeholder="Enter username"
-                                           id="username" readonly>
-                                </div>
-                                <c:if test="${ empty principal.user.oauth}">
-                                    <div class="form-group">
-                                        <label for="password">비밀번호 :</label>
-                                        <input type="password" class="form-control" placeholder="Enter password" id="password">
-                                    </div>
-                                </c:if>
-                                <div class="form-group">
-                                    <label for="email">이메일 :</label>
-                                    <input value="${principal.user.email}" type="email" class="form-control" placeholder="Enter email"
-                                           id="email" readonly>
-
-                                </div>
-                            </form>
-                            <br>
-                            <button id="btn-update" class="btn btn-success">수정 완료</button>
-
-                        </div>
-                    </div>
                 </div>
-
+                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                        <h2>John Doe</h2>
+                    <hr>
+                    <ul class="container details" >
+                        <li style=" list-style-type:none"><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>i.rudberg</p></li>
+                        <li style=" list-style-type:none"><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>somerandom@email.com</p></li>
+                    </ul>
+                    <hr>
+                    <div class="col-sm-5 col-xs-6 tital " >Date Of Joining: 15 Jun 2016</div>
+                </div>
             </div>
-
         </div>
+    </div>
+</div>
 
-        <%@ include file="../layout/footer.jsp"%>
+    <%@ include file="../layout/footer.jsp"%>

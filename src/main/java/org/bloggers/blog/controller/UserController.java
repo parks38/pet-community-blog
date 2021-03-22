@@ -54,6 +54,11 @@ public class UserController {
         return "user/updateForm";
     }
 
+  @GetMapping("/user/userForm")
+  public String userForm() {
+    return "user/userForm";
+  }
+
     /**
      * @ResponseBody : Data를 리턴해주는 컨트롤러 함수
      */
