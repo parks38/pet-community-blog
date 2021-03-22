@@ -34,11 +34,5 @@
       </div>
       <!-- /.col-lg-9 -->
 
-    </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-
 
 <%@ include file="../layout/footer.jsp"%>

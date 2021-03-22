@@ -19,6 +19,11 @@ public class MyPetPostController {
         return "mypet/mypetBulletin";
     }
 
+    @GetMapping("/mypet/{id}")
+    public String findById(@PathVariable int id, Model model) {
+        //model.addAttribute("mypet", boardService.글상세보기(id) );
+        return "mypet/mypetDetail";
+    }
 
     
 }
