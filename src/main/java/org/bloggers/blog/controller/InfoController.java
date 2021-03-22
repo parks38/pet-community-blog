@@ -9,7 +9,7 @@ public class InfoController {
     //user 권한 필요
     @GetMapping("/info")
     public String infoBulletin() {
-        return "info/infoBulletin";
+        return "board/infoBulletin";
     }
 
 
