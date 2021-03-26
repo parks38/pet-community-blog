@@ -16,13 +16,15 @@
             </div>
 
         </form>
-        <button id="btn-board-save" class="btn btn-outline-success"> 글쓰기 완료</button>
+        <div class = "d-flex flex-row-reverse">
+            <button id="btn-board-save" class="btn btn-outline-success"> 글쓰기 완료</button>
+        </div>
     </div>
     <script>
         $('.summernote').summernote({
             placeholder: 'Hello Bootstrap 4',
             tabsize: 2,
-            height: 300
+            height: 580
         });
     </script>
     <script src = "/js/func/board.js"></script>
