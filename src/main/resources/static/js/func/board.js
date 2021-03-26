@@ -92,6 +92,7 @@ let index = {
             alert(JSON.stringify(error));
         });
     },
+
     replyDelete : function(boardId, replyId){
         $.ajax({
             type: "DELETE",

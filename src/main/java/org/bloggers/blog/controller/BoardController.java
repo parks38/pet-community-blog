@@ -17,13 +17,13 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping({"","/"})
+    @GetMapping({"","/board"})
     // 컨트롤러에서 세션 찾기 : @AuthenticationPrincipal PrincipalDetail principal
-    public String index(Model model,
-                        @PageableDefault(size = 3, sort = "id",
+    public String boardBulletin(Model model,
+                        @PageableDefault(size = 10, sort = "id",
                                 direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("boards", boardService.글목록(pageable));
-        return "index";
+        return "board/boardBulletin";
     }
 
     //user 권한 필요
@@ -35,7 +35,7 @@ public class BoardController {
     @GetMapping("/board/{id}")
     public String findById(@PathVariable int id, Model model) {
         model.addAttribute("board",boardService.글상세보기(id) );
-        return "board/detail";
+        return "board/boardDetail";
     }
 
     @GetMapping("/board/{id}/updateForm")
