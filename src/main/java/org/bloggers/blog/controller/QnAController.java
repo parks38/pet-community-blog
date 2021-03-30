@@ -21,7 +21,7 @@ public class QnAController {
     @GetMapping("/qna")
     public String qnaBulletin(Model model, @PageableDefault(size = 10, sort = "id",
         direction = Sort.Direction.DESC) Pageable pageable) {
-        model.addAttribute("questions", qnAService.글목록(pageable));
+        model.addAttribute("qna", qnAService.글목록(pageable));
         return "qna/qna";
     }
 

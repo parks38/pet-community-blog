@@ -45,14 +45,30 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/auth/joinForm">회원가입</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/auth/loginForm">로그인</a>
-                </li>
-            </ul>
+            <c:choose>
+                <c:when test="${not empty principal.user.id}">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white;" href="/auth/joinForm">마이 페이지 </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white;" href="/auth/loginForm">로그아웃 </a>
+                        </li>
+                    </ul>
+                </c:when>
+                <c:otherwise>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white;" href="/auth/joinForm">회원가입</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: white;" href="/auth/loginForm">로그인</a>
+                        </li>
+                    </ul>
+                </c:otherwise>
+
+            </c:choose>
+
         </div>
     </div>
 </nav>
