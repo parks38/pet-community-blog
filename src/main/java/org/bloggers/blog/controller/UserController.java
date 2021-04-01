@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class UserController {
-    @Value("${cos.key")
+s    @Value("${cos.key}")
     private String cosKey;
 
     @Autowired
