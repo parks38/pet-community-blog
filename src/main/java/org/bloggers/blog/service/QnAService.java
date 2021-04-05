@@ -1,5 +1,6 @@
 package org.bloggers.blog.service;
 
+import org.bloggers.blog.dto.QnaReplySaveRequestDto;
 import org.bloggers.blog.dto.ReplySaveRequestDto;
 import org.bloggers.blog.model.Board;
 import org.bloggers.blog.model.QnA;
@@ -53,8 +54,8 @@ public class QnAService {
 
 
     @Transactional
-    public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
-        int result = qnaReplyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
+    public void 댓글쓰기(QnaReplySaveRequestDto replySaveRequestDto) {
+        int result = qnaReplyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getPostId(), replySaveRequestDto.getContent());
         System.out.println("qnaService: " + result);
     }
 

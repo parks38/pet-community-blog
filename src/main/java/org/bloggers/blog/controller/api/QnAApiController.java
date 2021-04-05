@@ -1,6 +1,7 @@
 package org.bloggers.blog.controller.api;
 
 import org.bloggers.blog.config.auth.PrincipalDetail;
+import org.bloggers.blog.dto.QnaReplySaveRequestDto;
 import org.bloggers.blog.dto.ReplySaveRequestDto;
 import org.bloggers.blog.dto.ResponseDto;
 import org.bloggers.blog.model.Board;
@@ -36,7 +37,7 @@ public class QnAApiController {
     }
 
     @PostMapping("/api/qna/{qnaId}/reply")
-    public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto){
+    public ResponseDto<Integer> replySave(@RequestBody QnaReplySaveRequestDto replySaveRequestDto){
         qnAService.댓글쓰기(replySaveRequestDto);
         return new ResponseDto<Integer>(HttpStatus.OK, 1);
     }
