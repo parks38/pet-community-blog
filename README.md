@@ -4,4 +4,6 @@
 Spring Framework를 활용하여 Rest Api를 이용하여 CRUD 연산을 행하여 커뮤니티의 포스트 및 댓글, 로그인, 사용자 정보 수정 기능을 구현하였습니다.
 
 기능 구현 : 
- - 포스트 
+ - 게시판  
+ - spring jwt token based login
+ - Kakao OAuth login 
