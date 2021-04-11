@@ -3,7 +3,8 @@
 사용자들끼리 자신의 지식을 공유하고 도움을 받을 수 있도록 블로그 형태로 포스팅을 하고 댓글을 통해 다른 사용들과 소통이 가능합니다. 
 Spring Framework를 활용하여 Rest Api를 이용하여 CRUD 연산을 행하여 커뮤니티의 포스트 및 댓글, 로그인, 사용자 정보 수정 기능을 구현하였습니다.
 
-기능 구현 : 
- - 게시판  
+API 명세서 : 
+ - 게시판 CRUD
  - spring jwt token based login
  - Kakao OAuth login 
+ - 회원 가입 
