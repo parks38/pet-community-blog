@@ -14,3 +14,14 @@ API 명세서 :
  - spring jwt token based login
  - Kakao OAuth login 
  - 회원 가입 
+
+### 프로젝트 구조 
+
+#### 개발 환경 
+Java, Spring Boot, Gradle, MySQL
+
+### 프로젝트 중점 사항 
+- 의존적이지 않은 코드 작성 
+- REST API 
+- OAuth 키카오 로그인 
+- JPA 활용 
