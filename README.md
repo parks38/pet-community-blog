@@ -10,10 +10,10 @@ Spring Framework를 활용하여 Rest Api를 이용하여 CRUD 연산을 행하�
 
 기술 명세서 : 
  - 게시판 CRUD 비즈니스 로직 구현 
+ - 게시판의 댓글 구현 
  - 회원 비즈니스 로직 구현 
- - Spring Security 
+ - Spring Security 를 이용한 로그인 인증 처리
  - Kakao OAuth login : 토큰 기반 로그인 구현 
- - 
 
 ### 프로젝트 구조 
 
