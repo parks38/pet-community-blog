@@ -4,24 +4,24 @@
 Spring Framework를 활용하여 Rest Api를 이용하여 CRUD 연산을 행하여 커뮤니티의 포스트 및 댓글, 로그인, 사용자 정보 수정 기능을 구현하였습니다.
 
 ###  프로젝트 목표 
-- 버전 관리 
 - service layer 통해 의존적이지 않은 코드 작성 
 - @Transactional 이용 로직 구현 
-- MySQL
+- JPA 기반으로 Hibernate 을 이용하여 객체자체 집중의 로직 개발  
 
-API 명세서 : 
- - 게시판 CRUD
- - spring jwt token based login
- - Kakao OAuth login 
- - 회원 가입 
+기술 명세서 : 
+ - 게시판 CRUD 비즈니스 로직 구현 
+ - 회원 비즈니스 로직 구현 
+ - Spring Security 
+ - Kakao OAuth login : 토큰 기반 로그인 구현 
+ - 
 
 ### 프로젝트 구조 
 
 #### 개발 환경 
-Java, Spring Boot, Gradle, MySQL
+Java, Spring Boot, Gradle, MySQL, JPA, Hibernate
 
 ### 프로젝트 중점 사항 
-- 의존적이지 않은 코드 작성 
+- 비즈니스 코드 역할 분리하여 작성 
 - REST API 
 - OAuth 키카오 로그인 
 - JPA 활용 
